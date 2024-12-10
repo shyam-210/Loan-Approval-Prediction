@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e0f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 5% auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #6a5acd;
+            font-size: 28px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4d4d4d;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus, select:focus {
+            border-color: #6a5acd;
+            outline: none;
+        }
+        .btn {
+            background-color: #6a5acd;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn:hover {
+            background-color: #483d8b;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Approval Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <br>
+                <input type="text" id="age" name="age" placeholder="Enter Age (Positive Integer)" pattern="^[1-9]\d*$" title="Enter a positive number" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <select id="education" name="education" required>
+                    <option value="" disabled selected>Select Education</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Associate">Associate</option>
+                    <option value="High School">High School</option>
+                    <option value="Master">Master</option>
+                    <option value="Doctrate">Doctrate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="income">Income:</label>
+                <input type="text" id="income" name="income" placeholder="Enter Income (Positive Integer)" pattern="^[1-9]\d*$" title="Enter a positive number" required>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience:</label>
+                <input type="text" id="experience" name="experience" placeholder="Enter Experience (Positive Integer)" pattern="^[1-9]\d*$" title="Enter a positive number" required>
+            </div>
+            <div class="form-group">
+                <label for="home_ownership">Home Ownership:</label>
+                <select id="home_ownership" name="home_ownership" required>
+                    <option value="" disabled selected>Select Home Ownership</option>
+                    <option value="RENT">Rent</option>
+                    <option value="OWN">Own</option>
+                    <option value="MORTAGE">Mortage</option>
+                    <option value="OTHER">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="loan_amount">Loan Amount:</label>
+                <input type="text" id="loan_amount" name="loan_amount" placeholder="Enter Loan Amount (Positive Integer)" pattern="^[1-9]\d*$" title="Enter a positive number" required>
+            </div>
+            <div class="form-group">
+                <label for="loan_intent">Loan Intent:</label>
+                <select id="loan_intent" name="loan_intent" required>
+                    <option value="" disabled selected>Select Loan Intent</option>
+                    <option value="EDUCATION">Education</option>
+                    <option value="MEDICAL">Medical</option>
+                    <option value="VENTURE">Venture</option>
+                    <option value="PERSONAL">Personal</option>
+                    <option value="DEBITCONSOLIDATION">Debit Consolidation</option>
+                    <option value="HOMEIMPROVEMENT">Home Improvement</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="loan_interest">Loan Interest:</label>
+                <input type="text" id="loan_interest" name="loan_interest" placeholder="Enter Loan Interest (Positive Float)" pattern="^\d*\.?\d+$" title="Enter a positive decimal number" required>
+            </div>
+            <div class="form-group">
+                <label for="loan_income">Loan Income %:</label>
+                <input type="text" id="loan_income" name="loan_income" placeholder="Enter Loan Income % (Positive Float)" pattern="^\d*\.?\d+$" title="Enter a positive decimal number" required>
+            </div>
+            <div class="form-group">
+                <label for="credit_history_length">Credit History Length:</label>
+                <input type="text" id="credit_history_length" name="credit_history_length" placeholder="Enter Credit History Length (Positive Float)" pattern="^\d*\.?\d+$" title="Enter a positive decimal number" required>
+            </div>
+            <div class="form-group">
+                <label for="credit_score">Credit Score:</label>
+                <input type="text" id="credit_score" name="credit_score" placeholder="Enter Credit Score (Positive Float)" pattern="^\d*\.?\d+$" title="Enter a positive decimal number" required>
+            </div>
+            <div class="form-group">
+                <label for="prev_loan_defaults">Previous Loan Defaults:</label>
+                <select id="prev_loan_defaults" name="prev_loan_defaults" required>
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
